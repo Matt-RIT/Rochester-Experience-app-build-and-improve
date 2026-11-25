@@ -145,12 +145,12 @@
                     <!-- Budget Level -->
                     <div>
                         <label class="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-2">
-                            <i class="fa-solid fa-wallet text-zinc-400 mr-1.5"></i>Budget Tier
+                            <i class="fa-solid fa-wallet text-zinc-400 mr-1.5"></i>Budget Tier (Total / Day)
                         </label>
                         <select id="param-budget" class="w-full bg-black border border-zinc-700 rounded-lg px-3 py-2.5 text-sm text-white focus:ring-2 focus:ring-white focus:outline-none font-medium">
-                            <option value="budget">Value & Casual ($)</option>
-                            <option value="moderate" selected>Balanced Comfort ($$)</option>
-                            <option value="premium">Boutique & Fine Dining ($$$)</option>
+                            <option value="budget">Value & Casual ($80 – $110 / day total)</option>
+                            <option value="moderate" selected>Balanced Comfort ($170 – $240 / day total)</option>
+                            <option value="premium">Boutique & Fine Dining ($300 – $450+ / day total)</option>
                         </select>
                     </div>
 
@@ -329,7 +329,7 @@
                 name: 'Microtel Inn & Suites by Wyndham Henrietta',
                 vibe: ['rit', 'budget', 'outdoors'],
                 budgetTier: 'budget',
-                price: '$',
+                price: '$85 est. hotel portion',
                 address: '205 Holleder Pkwy, Henrietta, NY',
                 desc: 'Comfortable, budget-friendly basecamp located minutes from RIT campus with complimentary breakfast and easy highway access.',
                 amenities: ['Free Breakfast', 'RIT Proximity', 'Free WiFi', 'Budget Friendly']
@@ -339,7 +339,7 @@
                 name: 'Red Roof Inn Rochester - Airport',
                 vibe: ['budget', 'family'],
                 budgetTier: 'budget',
-                price: '$',
+                price: '$80 est. hotel portion',
                 address: '4820 W Henrietta Rd, Henrietta, NY',
                 desc: 'Affordable, hassle-free lodging ideal for quick stops, easy campus visits, and casual road trippers.',
                 amenities: ['Pet Friendly', 'Free Parking', 'Airport & Campus Access', 'Budget Tier']
@@ -349,7 +349,7 @@
                 name: 'Courtyard Rochester Downtown',
                 vibe: ['foodie', 'moderate', 'arts'],
                 budgetTier: 'moderate',
-                price: '$$',
+                price: '$150 est. hotel portion',
                 address: '390 East Ave, Rochester, NY',
                 desc: 'Modern hotel within walking distance of Eastman Museum, local cafes, and downtown art galleries.',
                 amenities: ['On-site Bistro', 'Walkable District', 'Fitness Center', 'Free WiFi']
@@ -359,7 +359,7 @@
                 name: 'Hilton Garden Inn Rochester - College Town',
                 vibe: ['rit', 'moderate', 'family'],
                 budgetTier: 'moderate',
-                price: '$$',
+                price: '$145 est. hotel portion',
                 address: '30 Celebration Dr, Rochester, NY',
                 desc: 'Located adjacent to University of Rochester and minutes from RIT campus. Ideal basecamp for university visitors.',
                 amenities: ['College Town Dining', 'Indoor Pool', 'RIT Proximity', 'Free Parking']
@@ -369,7 +369,7 @@
                 name: 'Hyatt Regency Rochester Downtown',
                 vibe: ['arts', 'moderate', 'outdoors'],
                 budgetTier: 'moderate',
-                price: '$$',
+                price: '$160 est. hotel portion',
                 address: '125 E Main St, Rochester, NY',
                 desc: 'High-rise downtown hotel offering panoramic views of the Genesee River, direct skyway access, and central location.',
                 amenities: ['Genesee River Views', 'Central Hub', 'Starbucks Onsite', 'Indoor Pool']
@@ -379,7 +379,7 @@
                 name: 'The Strathallan Rochester Hotel & Spa',
                 vibe: ['foodie', 'premium', 'arts'],
                 budgetTier: 'premium',
-                price: '$$$',
+                price: '$245 est. hotel portion',
                 address: '550 East Ave, Rochester, NY (Neighborhood of the Arts)',
                 desc: 'Boutique hotel in Rochester’s cultural neighborhood. Features Char Steakhouse and rooftop cocktail bar with city views.',
                 amenities: ['Rooftop Grill & Lounge', 'Full Spa', 'East Ave Location', 'Indoor Pool']
@@ -389,46 +389,46 @@
                 name: 'The Del Monte Lodge Renaissance Rochester Hotel',
                 vibe: ['premium', 'outdoors', 'foodie'],
                 budgetTier: 'premium',
-                price: '$$$',
+                price: '$275 est. hotel portion',
                 address: '41 N Main St, Pittsford, NY',
                 desc: 'Luxury boutique property situated on the banks of the historic Erie Canal path in Pittsford Village.',
                 amenities: ['Canal-side Location', 'Luxury Spa', 'Erie Grill Dining', 'Boutique Service']
             }
         ];
 
+        const ROC_DINING_LIST = [
+            // Casual & Iconic Local Eats
+            { name: 'Nick Tahou Hots (Home of the Garbage Plate)', mealType: 'lunch', vibe: ['foodie', 'rit'], cost: '$12 – $16 per meal', duration: '1 hr', desc: 'The authentic Rochester staple: burgers, mac salad, home fries, and secret spicy meat sauce.', tags: ['Garbage Plate'] },
+            { name: 'Dogtown Gourmet Dogs & Plates', mealType: 'lunch', vibe: ['foodie', 'rit', 'family'], cost: '$10 – $15 per meal', duration: '1 hr', desc: 'Monroe Ave favorite for creative garbage plates, loaded hot dogs, and vegan options.', tags: ['Garbage Plate', 'Walkable'] },
+            { name: 'Javas Cafe & Espresso Bar', mealType: 'lunch', vibe: ['rit', 'arts'], cost: '$6 – $12 coffee/bites', duration: '45 mins', desc: 'Bohemian coffee house next to Eastman School of Music, known for fresh espresso and local student energy.', tags: ['Walkable'] },
+            { name: 'Pittsford Farms Dairy & Bakery', mealType: 'lunch', vibe: ['family', 'foodie', 'outdoors'], cost: '$5 – $12 treats', duration: '45 mins', desc: 'Historic canal-side dairy shop famous for fresh soft-serve, local chocolate milk, and pastries.', tags: ['Erie Canal', 'Kid Friendly'] },
+            
+            // Evening & Dinner Venues
+            { name: 'Genesee Brew House & Rooftop', mealType: 'dinner', vibe: ['foodie', 'rit', 'outdoors'], cost: '$20 – $35 per meal', duration: '1.5 hrs', desc: 'Craft taproom and grill featuring rooftop deck views directly overlooking High Falls waterfall.', tags: ['Walkable'] },
+            { name: 'Dinosaur Bar-B-Que', mealType: 'dinner', vibe: ['foodie', 'family', 'rit'], cost: '$22 – $40 per meal', duration: '1.5 hrs', desc: 'Legendary upstate NY barbecue inside a converted historic pump house on the Genesee River.', tags: ['Kid Friendly'] },
+            { name: 'Fiorella (Public Market District)', mealType: 'dinner', vibe: ['foodie', 'premium'], cost: '$45 – $75 per meal', duration: '1.5 hrs', desc: 'Artisanal farm-to-table Italian restaurant sourcing fresh produce directly from market farmers.', tags: ['Walkable'] },
+            { name: 'The Owl House', mealType: 'dinner', vibe: ['foodie', 'arts'], cost: '$25 – $45 per meal', duration: '1.5 hrs', desc: 'Cozy craft beverage spot in Park Ave neighborhood known for gourmet comfort food and vegan options.', tags: ['Walkable'] },
+            { name: 'Char Steak & Lounge', mealType: 'dinner', vibe: ['premium', 'foodie'], cost: '$60 – $110+ per meal', duration: '2 hrs', desc: 'Upscale dining venue located in The Strathallan hotel featuring prime steaks and handcrafted cocktails.', tags: [] }
+        ];
+
         // EXPANDED DATA BANK: Separated into explicit categories to guarantee zero duplicates
         const ROC_ACTIVITIES_LIST = [
             // Museums & Interactive
-            { name: 'The Strong National Museum of Play', vibe: ['family', 'arts', 'rit'], cost: '$$', duration: '3 hrs', desc: 'World famous interactive museum featuring the National Toy Hall of Fame, giant vintage arcade, and video game history.', tags: ['Kid Friendly', 'Walkable'] },
-            { name: 'George Eastman Museum & Mansion', vibe: ['arts', 'foodie'], cost: '$$', duration: '2 hrs', desc: 'The world’s oldest photography museum located inside Kodak founder George Eastman’s historic estate.', tags: ['Walkable'] },
-            { name: 'Rochester Museum & Science Center (RMSC)', vibe: ['family', 'arts'], cost: '$', duration: '2 hrs', desc: 'Interactive science exhibits, regional technology history, and Strasenburgh Planetarium star shows.', tags: ['Kid Friendly'] },
-            { name: 'Memorial Art Gallery (MAG)', vibe: ['arts'], cost: '$$', duration: '2 hrs', desc: '5,000 years of art history featuring medieval tapestries, modern masterpieces, and Centennial Sculpture Park.', tags: ['Walkable'] },
+            { name: 'The Strong National Museum of Play', vibe: ['family', 'arts', 'rit'], cost: '$23 per ticket', duration: '3 hrs', desc: 'World famous interactive museum featuring the National Toy Hall of Fame, giant vintage arcade, and video game history.', tags: ['Kid Friendly', 'Walkable'] },
+            { name: 'George Eastman Museum & Mansion', vibe: ['arts', 'foodie'], cost: '$20 per ticket', duration: '2 hrs', desc: 'The world’s oldest photography museum located inside Kodak founder George Eastman’s historic estate.', tags: ['Walkable'] },
+            { name: 'Rochester Museum & Science Center (RMSC)', vibe: ['family', 'arts'], cost: '$18 per ticket', duration: '2 hrs', desc: 'Interactive science exhibits, regional technology history, and Strasenburgh Planetarium star shows.', tags: ['Kid Friendly'] },
+            { name: 'Memorial Art Gallery (MAG)', vibe: ['arts'], cost: '$19 per ticket', duration: '2 hrs', desc: '5,000 years of art history featuring medieval tapestries, modern masterpieces, and Centennial Sculpture Park.', tags: ['Walkable'] },
             
             // Outdoors & Scenic
-            { name: 'High Falls & Genesee River Gorge Bridge', vibe: ['outdoors', 'rit', 'foodie'], cost: 'Free', duration: '1.5 hrs', desc: 'Walk across the historic pedestrian bridge over Rochester’s roaring 96-foot downtown waterfall.', tags: ['Walkable'] },
-            { name: 'Highland Park & Lamberton Conservatory', vibe: ['outdoors', 'family', 'rit'], cost: '$', duration: '2 hrs', desc: 'Explore Olmsted-designed botanical gardens, historic lilac displays, and exotic tropical greenhouses.', tags: ['Kid Friendly'] },
-            { name: 'Erie Canal Towpath Stroll (Pittsford Village)', vibe: ['outdoors', 'foodie'], cost: 'Free', duration: '1.5 hrs', desc: 'Scenic waterfront stroll past canal locks, boat docks, and boutique shops in historic Pittsford.', tags: ['Erie Canal', 'Walkable'] },
-            { name: 'Charlotte Pier & Ontario Beach Park', vibe: ['outdoors', 'family'], cost: 'Free', duration: '2 hrs', desc: 'Walk out to the historic lighthouse pier along Lake Ontario and ride the 1905 Dentzel Carousel.', tags: ['Kid Friendly'] },
-            { name: 'Seneca Park Zoo', vibe: ['family', 'outdoors'], cost: '$', duration: '2.5 hrs', desc: 'Lush riverfront zoo featuring African elephants, sea lions, and red pandas along the Genesee River.', tags: ['Kid Friendly'] },
+            { name: 'High Falls & Genesee River Gorge Bridge', vibe: ['outdoors', 'rit', 'foodie'], cost: 'Free admission', duration: '1.5 hrs', desc: 'Walk across the historic pedestrian bridge over Rochester’s roaring 96-foot downtown waterfall.', tags: ['Walkable'] },
+            { name: 'Highland Park & Lamberton Conservatory', vibe: ['outdoors', 'family', 'rit'], cost: '$5 admission', duration: '2 hrs', desc: 'Explore Olmsted-designed botanical gardens, historic lilac displays, and exotic tropical greenhouses.', tags: ['Kid Friendly'] },
+            { name: 'Erie Canal Towpath Stroll (Pittsford Village)', vibe: ['outdoors', 'foodie'], cost: 'Free stroll', duration: '1.5 hrs', desc: 'Scenic waterfront stroll past canal locks, boat docks, and boutique shops in historic Pittsford.', tags: ['Erie Canal', 'Walkable'] },
+            { name: 'Charlotte Pier & Ontario Beach Park', vibe: ['outdoors', 'family'], cost: 'Free ($2 carousel)', duration: '2 hrs', desc: 'Walk out to the historic lighthouse pier along Lake Ontario and ride the 1905 Dentzel Carousel.', tags: ['Kid Friendly'] },
+            { name: 'Seneca Park Zoo', vibe: ['family', 'outdoors'], cost: '$14 per ticket', duration: '2.5 hrs', desc: 'Lush riverfront zoo featuring African elephants, sea lions, and red pandas along the Genesee River.', tags: ['Kid Friendly'] },
             
             // RIT & Unique Rochester Experiences
-            { name: 'RIT Campus & SHED Innovation Hub Tour', vibe: ['rit'], cost: 'Free', duration: '2 hrs', desc: 'Tour RIT’s iconic brick campus, state-of-the-art SHED maker spaces, and student design galleries.', tags: ['Kid Friendly'] },
-            { name: 'Rochester Public Market Shopping', vibe: ['foodie', 'family', 'outdoors'], cost: '$', duration: '2 hrs', desc: 'Historic 1905 market packed with local produce, artisanal baked goods, and vibrant city culture.', tags: ['Walkable'] }
-        ];
-
-        const ROC_DINING_LIST = [
-            // Casual & Iconic Local Eats
-            { name: 'Nick Tahou Hots (Home of the Garbage Plate)', mealType: 'lunch', vibe: ['foodie', 'rit'], cost: '$', duration: '1 hr', desc: 'The authentic Rochester staple: burgers, mac salad, home fries, and secret spicy meat sauce.', tags: ['Garbage Plate'] },
-            { name: 'Dogtown Gourmet Dogs & Plates', mealType: 'lunch', vibe: ['foodie', 'rit', 'family'], cost: '$', duration: '1 hr', desc: 'Monroe Ave favorite for creative garbage plates, loaded hot dogs, and vegan options.', tags: ['Garbage Plate', 'Walkable'] },
-            { name: 'Javas Cafe & Espresso Bar', mealType: 'lunch', vibe: ['rit', 'arts'], cost: '$', duration: '45 mins', desc: 'Bohemian coffee house next to Eastman School of Music, known for fresh espresso and local student energy.', tags: ['Walkable'] },
-            { name: 'Pittsford Farms Dairy & Bakery', mealType: 'lunch', vibe: ['family', 'foodie', 'outdoors'], cost: '$', duration: '45 mins', desc: 'Historic canal-side dairy shop famous for fresh soft-serve, local chocolate milk, and pastries.', tags: ['Erie Canal', 'Kid Friendly'] },
-            
-            // Evening & Dinner Venues
-            { name: 'Genesee Brew House & Rooftop', mealType: 'dinner', vibe: ['foodie', 'rit', 'outdoors'], cost: '$$', duration: '1.5 hrs', desc: 'Craft taproom and grill featuring rooftop deck views directly overlooking High Falls waterfall.', tags: ['Walkable'] },
-            { name: 'Dinosaur Bar-B-Que', mealType: 'dinner', vibe: ['foodie', 'family', 'rit'], cost: '$$', duration: '1.5 hrs', desc: 'Legendary upstate NY barbecue inside a converted historic pump house on the Genesee River.', tags: ['Kid Friendly'] },
-            { name: 'Fiorella (Public Market District)', mealType: 'dinner', vibe: ['foodie', 'premium'], cost: '$$$', duration: '1.5 hrs', desc: 'Artisanal farm-to-table Italian restaurant sourcing fresh produce directly from market farmers.', tags: ['Walkable'] },
-            { name: 'The Owl House', mealType: 'dinner', vibe: ['foodie', 'arts'], cost: '$$', duration: '1.5 hrs', desc: 'Cozy craft beverage spot in Park Ave neighborhood known for gourmet comfort food and vegan options.', tags: ['Walkable'] },
-            { name: 'Char Steak & Lounge', mealType: 'dinner', vibe: ['premium', 'foodie'], cost: '$$$', duration: '2 hrs', desc: 'Upscale dining venue located in The Strathallan hotel featuring prime steaks and handcrafted cocktails.', tags: [] }
+            { name: 'RIT Campus & SHED Innovation Hub Tour', vibe: ['rit'], cost: 'Free tour', duration: '2 hrs', desc: 'Tour RIT’s iconic brick campus, state-of-the-art SHED maker spaces, and student design galleries.', tags: ['Kid Friendly'] },
+            { name: 'Rochester Public Market Shopping', vibe: ['foodie', 'family', 'outdoors'], cost: 'Free entry ($10-$15 bites)', duration: '2 hrs', desc: 'Historic 1905 market packed with local produce, artisanal baked goods, and vibrant city culture.', tags: ['Walkable'] }
         ];
 
         let currentPackage = null;
@@ -585,12 +585,19 @@
                 rit: 'RIT Visitor & Campus Tour'
             };
 
+            const budgetLabels = {
+                budget: '$80 – $110 Total Daily Budget',
+                moderate: '$170 – $240 Total Daily Budget',
+                premium: '$300 – $450+ Total Daily Budget'
+            };
+
             currentPackage = {
                 id: 'pkg_' + Date.now(),
                 title: `${days}-Day ${vibeTitles[vibe]} Package`,
                 vibe: vibe,
                 duration: `${days} ${days === 1 ? 'Day' : 'Days'}`,
                 budget: budget,
+                budgetLabel: budgetLabels[budget],
                 hotel: selectedHotel,
                 itinerary: itinerary,
                 tags: [...activeTags],
@@ -606,9 +613,9 @@
         function displayPackage(pkg) {
             document.getElementById('pkg-title').textContent = pkg.title;
             document.getElementById('pkg-tag').textContent = `${pkg.vibe.toUpperCase()} BUNDLE`;
-            document.getElementById('pkg-duration-badge').textContent = `• ${pkg.duration} Curated Itinerary`;
+            document.getElementById('pkg-duration-badge').textContent = `• ${pkg.duration} (${pkg.budgetLabel})`;
             
-            let desc = `Your customized Rochester care package pairs hotel accommodations at ${pkg.hotel.name} with a curated day-by-day schedule of top regional attractions and dining.`;
+            let desc = `Your customized Rochester care package pairs hotel accommodations at ${pkg.hotel.name} with a curated day-by-day schedule of top regional attractions and dining. Estimated all-inclusive total daily cost: ${pkg.budgetLabel}.`;
             if (pkg.tags && pkg.tags.length > 0) {
                 desc += ` Tailored with preference tags: ${pkg.tags.join(', ')}.`;
             }
@@ -640,7 +647,7 @@
                         
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
                             <span class="text-xs font-black text-black uppercase tracking-wider">${item.time} — ${item.category}</span>
-                            <span class="text-xs font-medium text-zinc-500"><i class="fa-solid fa-clock mr-1"></i>Est. ${item.duration}</span>
+                            <span class="text-xs font-medium text-zinc-500"><i class="fa-solid fa-tag mr-1"></i>${item.cost} • Est. ${item.duration}</span>
                         </div>
 
                         <h4 class="text-lg font-black text-black flex items-center gap-2">
